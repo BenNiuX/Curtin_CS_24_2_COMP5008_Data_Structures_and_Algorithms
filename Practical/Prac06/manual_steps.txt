@@ -1,0 +1,187 @@
+GRAPH1
+DFS: 
+new = {A, B, C, D, E, F, G}
+old = {}
+T = {}
+->
+new = {B, C, D, E, F, G}
+old = {A}
+L[A]={B, C, D}
+T = {}
+->
+new = {C, D, E, F, G}
+old = {A, B}
+L[B]={A, E}
+T = {(A,B)}
+->
+new = {C, D, F, G}
+old = {A, B, E}
+L[E]={B, F, G}
+T = {(A,B), (B,E)}
+->
+new = {C, D, G}
+old = {A, B, E, F}
+L[F]={D, E, G}
+T = {(A,B), (B,E), (E,F)}
+->
+new = {C, G}
+old = {A, B, E, F, D}
+L[D]={A, C, F}
+T = {(A,B), (B,E), (E,F), (F,D)}
+->
+new = {G}
+old = {A, B, E, F, D, C}
+L[C]={A, D}
+T = {(A,B), (B,E), (E,F), (F,D), (D, C)}
+->
+new = {}
+old = {A, B, E, F, D, C, G}
+L[G]={E, F}
+T = {(A,B), (B,E), (E,F), (F,D), (D, C), (F,G)}
+
+
+BFS: 
+new = {A, B, C, D, E, F, G}
+old = {}
+T = {}
+->
+new = {B, C, D, E, F, G}
+old = {A}
+L[A]={B, C, D}
+T = {}
+->
+new = {C, D, E, F, G}
+old = {A, B}
+L[B]={A, E}
+T = {(A,B)}
+->
+new = {D, E, F, G}
+old = {A, B, C}
+L[C]={A, D}
+T = {(A,B), (A,C)}
+->
+new = {E, F, G}
+old = {A, B, C, D}
+L[D]={A, F}
+T = {(A,B), (A,C), (A,D)}
+->
+new = {F, G}
+old = {A, B, C, D, E}
+L[E]={B, F, G}
+T = {(A,B), (A,C), (A,D), (B,E)}
+->
+new = {G}
+old = {A, B, C, D, E, F}
+L[F]={E, G}
+T = {(A,B), (A,C), (A,D), (B,E), (D,F)}
+->
+new = {}
+old = {A, B, C, D, E, F, G}
+L[G]={E, F}
+T = {(A,B), (A,C), (A,D), (B,E), (D,F), (E,G)}
+
+GRAPH2
+DFS: 
+new = {A, B, C, D, E, F, G, H, I, J}
+old = {}
+T = {}
+->
+new = {B, C, D, E, F, G, H, I, J}
+old = {A}
+L[A]={B, C, D}
+T = {}
+->
+new = {C, D, E, F, G, H, I, J}
+old = {A, B}
+L[B]={A, E}
+T = {(A,B)}
+->
+new = {C, D, F, G, H, I, J}
+old = {A, B, E}
+L[E]={B, D, G}
+T = {(A,B), (B,E)}
+->
+new = {C, F, G, H, I, J}
+old = {A, B, E, D}
+L[D]={A, E, F, H}
+T = {(A,B), (B,E), (E,D)}
+->
+new = {C, G, H, I, J}
+old = {A, B, E, D, F}
+L[F]={C, D, I}
+T = {(A,B), (B,E), (E,D), (D,F)}
+->
+new = {G, H, I, J}
+old = {A, B, E, D, F, C}
+L[C]={A, F}
+T = {(A,B), (B,E), (E,D), (D,F), (F,C)}
+->
+new = {G, H, J}
+old = {A, B, E, D, F, C, I}
+L[I]={F,H,J}
+T = {(A,B), (B,E), (E,D), (D,F), (F,C), (F,I)}
+->
+new = {G, J}
+old = {A, B, E, D, F, C, I, H}
+L[H]={D, G, I, J}
+T = {(A,B), (B,E), (E,D), (D,F), (F,C), (F,I), (I,H)}
+->
+new = {J}
+old = {A, B, E, D, F, C, I, H, G}
+L[G]={E, H, J}
+T = {(A,B), (B,E), (E,D), (D,F), (F,C), (F,I), (I,H), (H,G)}
+->
+new = {}
+old = {A, B, E, D, F, C, I, H, G, J}
+L[J]={G, H, I}
+T = {(A,B), (B,E), (E,D), (D,F), (F,C), (F,I), (I,H), (H,G), (G,J)}
+
+BFS: 
+new = {A, B, C, D, E, F, G, H, I, J}
+old = {}
+T = {}
+->
+new = {B, C, D, E, F, G, H, I, J}
+old = {A}
+L[A]={B, C, D}
+T = {}
+->
+new = {C, D, E, F, G, H, I, J}
+old = {A, B}
+L[B]={A, E}
+T = {(A,B)}
+->
+new = {D, E, F, G, H, I, J}
+old = {A, B, C}
+L[C]={A, F}
+T = {(A,B), (A,C)}
+->
+new = {E, F, G, H, I, J}
+old = {A, B, C, D}
+L[D]={A, E, F, H}
+T = {(A,B), (A,C), (A,D)}
+->
+new = {F, G, H, I, J}
+old = {A, B, C, D, E}
+L[E]={B, D, G}
+T = {(A,B), (A,C), (A,D), (B,E)}
+->
+new = {G, H, I, J}
+old = {A, B, C, D, E, F}
+L[F]={C, D, I}
+T = {(A,B), (A,C), (A,D), (B,E), (C,F)}
+->
+new = {I, J}
+old = {A, B, C, D, E, F, H, G}
+L[G]={E, H, J}
+T = {(A,B), (A,C), (A,D), (B,E), (C,F), (D,H), (E,G)}
+->
+new = {J}
+old = {A, B, C, D, E, F, H, G, I}
+L[I]={F, H, J}
+T = {(A,B), (A,C), (A,D), (B,E), (C,F), (D,H), (E,G), (F,I)}
+->
+new = {}
+old = {A, B, C, D, E, F, H, G, I, J}
+L[J]={G, H, I}
+T = {(A,B), (A,C), (A,D), (B,E), (C,F), (D,H), (E,G), (F,I), (H,J)}
